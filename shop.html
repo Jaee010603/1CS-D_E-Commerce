@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .navbar {
+            background-color: #b03526;
+            overflow: hidden;
+            padding: 10px 20px;
+        }
+        .navbar a {
+            float: right;
+            color: #fff;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 17px;
+            transition: transform 0.2s;
+        }
+        .navbar a:hover, .navbar a:active {
+            transform: scale(1.1);
+            background-color: #ddd;
+            color: black;
+        }
+        .navbar a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .content {
+            text-align: center;
+            padding: 50px;
+        }
+        .content h1 {
+            font-size: 48px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section h2 {
+            font-size: 36px;
+            color: #b03526;
+            margin-bottom: 20px;
+        }
+        .shop-item {
+            display: inline-block;
+            background-color: #fff;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            width: 200px;
+            transition: transform 0.2s;
+        }
+        .shop-item:hover {
+            transform: scale(1.05);
+        }
+        .shop-item img {
+            width: 200px; 
+            height: 200px; 
+            object-fit: cover; 
+            border-radius: 10px;    
+        }
+        .shop-item h3 {
+            font-size: 20px;
+            color: #333;
+            margin-top: 10px;
+        }
+        .shop-item p {
+            font-size: 18px;
+            color: #666;
+            margin: 5px 0;
+        }
+        .shop-item .quantity-control {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .shop-item .quantity-control button {
+            background-color: #b03526;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .shop-item .quantity-control button:disabled {
+            background-color: #ddd;
+            cursor: not-allowed;
+        }
+        .total-price {
+            font-size: 24px;
+            color: #333;
+            margin-top: 20px;
+        }
+        .place-order {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 20px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .place-order:hover {
+            background-color: #45a049;
+        }
+       
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+        .modal h2 {
+            margin-top: 0;
+        }
+        .close, .confirm-order {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover, .close:focus, .confirm-order:hover, .confirm-order:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .confirm-order {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        .footer {
+            background-color: #b03526;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="about.html">About us</a>
+        <a href="shop.html" class="active">Shop</a>
+        <a href="index.html">Home</a>
+        <a>FOODFIESTA</a>
+        
+    </div>
+    <div class="content">
+        <h1>Menu</h1>
+
+        <div class="section" id="beverages">
+            <h2>Beverages</h2>
+            <div class="shop-item">
+                <img src="coke.jpg" alt="Beverage 1">
+                <h3>Coke</h3>
+                <p>₱10.00</p>
+                <div class="quantity-control">
+                    <button>-</button>
+                    <span>0</span>
+                    <button>+</button>
+                </div>
+            </div>
+            <div class="shop-item">
+                <img src="sprite.jpg" alt="Beverage 2">
+                <h3>Sprite</h3>
+                <p>₱10.00</p>
+                <div class="quantity-control">
+                    <button>-</button>
+                    <span>0</span>
+                    <button>+</button>
+                </div>
+            </div>
+            <div class="shop-item">
+                <img src="pine.jpg" alt="Beverage 2">
+                <h3>Pineapple Juice</h3>
+                <p>₱10.00</p>
+                <div class="quantity-control">
+                    <button>-</button>
+                    <span>0</span>
+                    <button>+</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="appetizers">
+            <h2>Appetizers</h2>
+            <div class="shop-item">
+                <img src="mpotato.jpg" alt="Appetizer 1">
+                <h3>Mashed Potato</h3>
+                <p>₱12.00</p>
+                <div class="quantity-control">
+                    <button>-</button>
+                    <span>0</span>
+                    <button>+</button>
+                </div>
+            </div>
+            <div class="shop-item">
+                <img src="cucum.jpg" alt="Appetizer 2">
+                <h3>Cucumber Guacamole</h3>
+                <p>₱14.00</p>
+                <div class="quantity-control">
+                    <button>-</button>
+                    <span>0</span>
+                    <button>+</button>
+                </div>
+            </div>
+            <div class="shop-item">
+                <img src="cap.jpg" alt="Appetizer 2">
+                <h3>Caprese Salad Bites</h3>
+                <p>₱14.00</p>
+                <div class="quantity-control">
+                    <button>-</button>
+                    <span>0</span>
+                    <button>+</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="meals">
+            <h2>Meals</h2>
+            <div class="shop-item">
+                <img src="kaldereta.jpg" alt="Meal 1">
+                <h3>kaldereta</h3>
+                <p>₱55.00</p>
+                <div class="quantity-control">
+                    <button>-</button>
+                    <span>0</span>
+                    <button>+</button>
+                </div>
+            </div>
+            <div class="shop-item">
+                <img src="dinuguan.jpg" alt="Meal 2">
+                <h3>Dinuguan</h3>
+                <p>₱55.00</p>
+                <div class="quantity-control">
+                    <button>-</button>
+                    <span>0</span>
+                    <button>+</button>
+                </div>
+            </div>
+            <div class="shop-item">
+                <img src="roastedchick.jpg" alt="Meal 2">
+                <h3>Roasted Chicken</h3>
+                <p>₱60.00</p>
+                <div class="quantity-control">
+                    <button>-</button>
+                    <span>0</span>
+                    <button>+</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="desserts">
+            <h2>Desserts</h2>
+            <div class="shop-item">
+                <img src="icecream.jpg" alt="Dessert 1">
+                <h3>Ice Cream</h3>
+                <p>₱20.00</p>
+                <div class="quantity-control">
+                    <button>-</button>
+                    <span>0</span>
+                    <button>+</button>
+                </div>
+            </div>
+            <div class="shop-item">
+                <img src="leche.jpg" alt="Dessert 2">
+                <h3>Leche Flan</h3>
+                <p>₱25.00</p>
+                <div class="quantity-control">
+                    <button>-</button>
+                    <span>0</span>
+                    <button>+</button>
+                </div>
+            </div>
+            <div class="shop-item">
+                <img src="frappe.jpg" alt="Dessert 2">
+                <h3>Coffee Frappe</h3>
+                <p>₱25.00</p>
+                <div class="quantity-control">
+                    <button>-</button>
+                    <span>0</span>
+                    <button>+</button>
+                </div>
+            </div>
+           
+        </div>
+
+        <div class="section" id="snacks">
+            <h2>Snacks</h2>
+            <div class="shop-item">
+                <img src="fries.jpg" alt="Snack 1">
+                <h3>Fries</h3>
+                <p>₱35.00</p>
+                <div class="quantity-control">
+                    <button>-</button>
+                    <span>0</span>
+                    <button>+</button>
+                </div>
+            </div>
+            <div class="shop-item">
+                <img src="shanghai.jpg" alt="Snack 2">
+                <h3>Lumpiang Shanghai</h3>
+                <p>₱35.00</p>
+                <div class="quantity-control">
+                    <button>-</button>
+                    <span>0</span>
+                    <button>+</button>
+                </div>
+            </div>
+            <div class="shop-item">
+                <img src="nachos.jpg" alt="Snack 2">
+                <h3>Nachos</h3>
+                <p>₱35.00</p>
+                <div class="quantity-control">
+                    <button>-</button>
+                    <span>0</span>
+                    <button>+</button>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="total-price">Total Price: ₱<span id="total-price">0.00</span></div>
+        <button class="place-order">Place Order</button>
+    </div>
+
+    
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Order Summary</h2>
+            <div id="order-details"></div>
+            <p>Total Price: ₱<span id="modal-total-price">0.00</span></p>
+            <button class="confirm-order">Confirm Order</button>
+        </div>
+    </div>
+
+    
+    <div id="thankYouModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Thank You!</h2>
+            <p>Thanks for using our platform. We hope to see you again soon!</p>
+
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.quantity-control button').forEach(button => {
+            button.addEventListener('click', () => {
+                const span = button.parentNode.querySelector('span');
+                let quantity = parseInt(span.textContent);
+                if (button.textContent === '+') {
+                    quantity++;
+                } else if (button.textContent === '-' && quantity > 0) {
+                    quantity--;
+                }
+                span.textContent = quantity;
+                updateTotalPrice();
+            });
+        });
+
+        function updateTotalPrice() {
+            let totalPrice = 0;
+            document.querySelectorAll('.shop-item').forEach(item => {
+                const price = parseFloat(item.querySelector('p').textContent.substring(1));
+                const quantity = parseInt(item.querySelector('.quantity-control span').textContent);
+                totalPrice += price * quantity;
+            });
+            document.getElementById('total-price').textContent = totalPrice.toFixed(2);
+        }
+
+        
+        const modal = document.getElementById("orderModal");
+        const thankYouModal = document.getElementById("thankYouModal");
+        const btn = document.querySelector(".place-order");
+        const span = document.querySelectorAll(".close");
+
+        btn.onclick = function() {
+            const orderDetails = document.getElementById('order-details');
+            orderDetails.innerHTML = '';
+            document.querySelectorAll('.shop-item').forEach(item => {
+                const itemName = item.querySelector('h3').textContent;
+                const quantity = parseInt(item.querySelector('.quantity-control span').textContent);
+                if (quantity > 0) {
+                    const price = parseFloat(item.querySelector('p').textContent.substring(1));
+                    orderDetails.innerHTML += `<p>${itemName} x${quantity} - ₱${(price * quantity).toFixed(2)}</p>`;
+                }
+            });
+            document.getElementById('modal-total-price').textContent = document.getElementById('total-price').textContent;
+            modal.style.display = "block";
+        }
+
+        span.forEach(close => {
+            close.onclick = function() {
+                modal.style.display = "none";
+                thankYouModal.style.display = "none";
+            }
+        });
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            } else if (event.target == thankYouModal) {
+                thankYouModal.style.display = "none";
+            }
+        }
+
+        document.querySelector('.confirm-order').onclick = function() {
+            modal.style.display = "none";
+            thankYouModal.style.display = "block";
+        }
+    </script>
+    <div class="footer">
+        &copy; 2024 Food Fiesta. All rights reserved.
+    </div>
+</body>
+</html>

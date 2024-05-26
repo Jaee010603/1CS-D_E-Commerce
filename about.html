@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .navbar {
+            background-color: #b03526;
+            overflow: hidden;
+            padding: 20px 20px; 
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); 
+        }
+        .navbar a {
+            float: right;
+            color: #fff;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 17px;
+            transition: transform 0.2s, background-color 0.2s, color 0.2s;
+        }
+        .navbar a:hover, .navbar a:focus, .navbar a:active {
+            background-color: #ddd;
+            color: black;
+            transform: scale(1.1);
+        }
+        .navbar a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .content {
+            text-align: justify;
+            padding: 50px;
+            background-color: #fff; 
+            border-radius: 10px; 
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
+            margin: 20px;
+        }
+        .content h1 {
+            font-size: 48px;
+            color: #333;
+        }
+        .content p {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .content img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+            .navbar a:active {
+                transform: scale(1.1);
+            }
+            .mission, .vision {
+                cursor: pointer;
+                padding: 10px; 
+            }
+            .mission:hover, .vision:hover {
+                font-size: 22px;
+            }
+        }
+        .footer {
+            background-color: #b03526;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<header>
+    <div class="navbar">
+        <a href="about.html" class="active">About us</a>
+        <a href="shop.html">Shop</a>
+        <a href="index.html">Home</a>
+        <a>FOODFIESTA</a>
+    </div>
+</header>
+<body>
+    <div class="content">
+        <h1>About FoodFiesta</h1>
+        <p>Welcome to FoodFiesta, where we believe that every meal is an adventure waiting to be savored. With just a click, embark on a culinary journey that tantalizes your taste buds, ignites your passion for flavor, and celebrates the diversity of global cuisine.</p>
+        <br>
+        <p class="mission">Mission:<br><br> FoodFiesta, our mission is simple: to connect food lovers with exceptional culinary experiences from around the world. We strive to curate a platform where gastronomic delights meet convenience, ensuring that exploring new flavors is always within reach.</p>
+        <br>
+        <p class="vision">Vision:<br><br> Vision is to become the ultimate destination for food enthusiasts, a digital hub where individuals can discover, share, and indulge in the rich tapestry of global cuisine. We aspire to foster a community that celebrates cultural diversity, culinary innovation, and the joy of gathering around the table.</p>
+        <br>
+        <p>What We Offer:<br><br>FoodFiesta is more than just a marketplace; it's a gateway to a world of culinary possibilities. From traditional recipes passed down through generations to avant-garde fusion creations, our platform showcases a diverse array of dishes, each telling a unique story of heritage and innovation. Whether you're a seasoned chef, an adventurous eater, or simply someone who appreciates good food, FoodFiesta is your passport to gastronomic bliss.</p>
+        <br>
+        <p>Why Choose FoodFiesta:</p>
+        <ul>
+            <li><strong>Diverse Selection:</strong> Explore a vast collection of cuisines from every corner of the globe, curated to satisfy every palate and preference.</li>
+            <li><strong>Quality Assurance:</strong> We partner with trusted vendors and culinary experts to ensure that every dish meets our high standards of taste, authenticity, and quality.</li>
+            <li><strong>Convenience:</strong> With seamless ordering and delivery options, enjoying your favorite meals has never been easier. Simply browse, click, and savor.</li>
+            <li><strong>Community Engagement:</strong> Join a vibrant community of food lovers, where you can share recommendations, swap recipes, and connect with like-minded individuals who share your passion for all things delicious.</li>
+        </ul>
+        <br>
+        <p>At FoodFiesta, we believe that great food has the power to bring people together, spark conversations, and create lasting memories. Join us on this culinary adventure, and let your taste buds be your guide. Bon appétit!</p>
+    </div>
+    <div class="footer">
+        &copy; 2024 Food Fiesta. All rights reserved.
+    </div>
+</body>
+</html>
